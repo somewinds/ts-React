@@ -1,0 +1,63 @@
+{
+  "name": "ts-react",
+  "version": "1.0.0",
+  "description": "a project about ts react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyr1227/ts-React.git"
+  },
+  "author": "Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wyr1227/ts-React/issues"
+  },
+  "homepage": "https://github.com/wyr1227/ts-React#readme",
+  "keywords": [
+    "webpack",
+    "react",
+    "typesripte",
+    "es6",
+    "js",
+    "module"
+  ],
+  "engines": {
+    "node": ">= 6.9"
+  },
+  "dependencies": {
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "mini-css-extract-plugin": "^0.4.2",
+    "node-sass": "^4.9.3",
+    "postcss-loader": "^3.0.0",
+    "react-hot-loader": "^4.3.6",
+    "sass-loader": "^7.1.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.0",
+    "tslib": "^1.9.3",
+    "tslint-config-airbnb": "^5.11.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.0.3",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.18.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.4"
+  }
+}

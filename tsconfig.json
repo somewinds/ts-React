@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "allowJs": true,
+    "alwaysStrict": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "esnext",
+      "es7",
+      "es6",
+      "es5",
+      "es2015.promise",
+      "es2015.generator",
+      "dom"
+    ],
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "es5",
+    "jsx": "react"
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}
