@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production'
 
 var webpackConfig = {
+  mode:  devMode ? 'development' : 'production',
   entry: {
     app: './src/main.tsx'
   },
@@ -26,22 +27,23 @@ var webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.tsx$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
+        include: [path.join(__dirname, '..', 'src')],
         loader: 'awesome-typescript-loader',
         options: {
           useCache: true,
           useBabel: true,
           babelOptions: {
             babelrc: false /* Important line */,
-            presets: ['react', 'stage-2', ['env', { modules: false }]], // 关闭 Babel 的模块转换功能，保留原本的 ES6 模块化语法
+            presets: ['react', 'stage-2'], // 关闭 Babel 的模块转换功能，保留原本的 ES6 模块化语法
             plugins: ['transform-runtime', 'react-hot-loader/babel']
           }
         }
       },
       {
         test: /\.jsx?$/, // 用babel编译jsx和es6
-        include: [path.resolve(__dirname, 'src')], // 指定检查的目录
+        include: [path.join(__dirname, '..', 'src')], // 指定检查的目录
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
