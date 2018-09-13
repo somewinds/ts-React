@@ -34,6 +34,6 @@ module.exports = merge(baseWebpackConfig, {
         console.log(...arr)
       }
     }),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 })

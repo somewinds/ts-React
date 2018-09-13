@@ -5,14 +5,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production'
 
-var webpackConfig = {
+const webpackConfig = {
   mode:  devMode ? 'development' : 'production',
   entry: {
     app: './src/main.tsx'
   },
   output: {
     path: config.build.assetsRoot,
-    filename: '[name].js',
+    filename: 'js/[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath

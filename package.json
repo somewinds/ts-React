@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env node build/dev-server.js"
+    "dev": "cross-env node build/dev-server.js",
+    "build": "cross-env node build/build.js"
   },
   "repository": {
     "type": "git",
@@ -29,12 +30,12 @@
     "node": ">= 6.9"
   },
   "dependencies": {
-    "@types/react": "^16.4.14",
-    "@types/react-dom": "^16.0.7",
     "react": "^16.5.0",
     "react-dom": "^16.5.0"
   },
   "devDependencies": {
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
     "awesome-typescript-loader": "^5.2.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -49,8 +50,10 @@
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.2",
     "node-sass": "^4.9.3",
+    "ora": "^3.0.0",
     "postcss-loader": "^3.0.0",
     "react-hot-loader": "^4.3.6",
+    "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.0",
