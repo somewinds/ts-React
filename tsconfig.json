@@ -15,6 +15,11 @@
       "es2015.generator",
       "dom"
     ],
+    "rootDirs": ["./src"],
+    "baseUrl":  "./src",
+    "paths": {
+      "@view/*": ["view/*"]
+    },
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es5",

@@ -30,12 +30,16 @@
     "node": ">= 6.9"
   },
   "dependencies": {
+    "@types/fastclick": "^1.0.28",
+    "fastclick": "^1.0.6",
     "react": "^16.5.0",
-    "react-dom": "^16.5.0"
+    "react-dom": "^16.5.0",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
+    "@types/react-router-dom": "^4.3.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",

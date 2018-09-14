@@ -21,7 +21,8 @@ const webpackConfig = {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.json'],
     alias: {
       "@": path.join(__dirname, '..', 'components'),
-      "src": path.join(__dirname, '..', 'src')
+      "src": path.join(__dirname, '..', 'src'),
+      "view": path.join(__dirname, '..', 'src/view'),
     }
   },
   module: {
