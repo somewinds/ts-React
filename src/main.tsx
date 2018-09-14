@@ -2,6 +2,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { AppContainer } from 'react-hot-loader';
 import * as FastClick from 'fastclick';
+import './style/common.scss'
+import './config/rem'
 import Route from "./router"
 
 (FastClick as any).attach(document.body);

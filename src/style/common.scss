@@ -1,0 +1,257 @@
+body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  font-style: normal;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+  width: 0;
+  height: 0;
+  background-color: #F5F5F5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);
+  border-radius: 0.1rem;
+  background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+  border-radius: 0.1rem;
+  -webkit-box-shadow: inset 0 0 0.06rem rgba(0,0,0,.3);
+  background-color: #555;
+}
+
+/*定义placeholder */
+::-webkit-input-placeholder
+{
+color: #ccc;
+}
+input , textarea{
+background: transparent;
+-webkit-appearance: none;
+background-color: transparent;
+&:focus {
+  outline: none;
+}
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+}
+textarea{
+resize: none;
+}
+
+html,body{
+position: relative;
+min-width: 300px;
+height: 100%;
+font: normal normal 0.28rem/1.15 helvetica ;
+color: #282a2a;
+// background-color: #f0f0f0;
+background-color: #f8f8f8;
+}
+body.noscroll{
+overflow: hidden;
+}
+// 解决uc浏览器底部多出一整屏高度的问题
+#app , .APP{
+width: 100%;
+height: 100%;
+}
+
+a {
+color: #333;
+}
+
+sup , sub{
+font-size: 0.14rem;
+}
+img {
+border:none;
+display: block;
+width: 100%;
+}
+a{
+color:#333;
+}
+
+// margin
+.ml-10 {
+margin-left: .2rem;
+}
+.ml-13 {
+margin-left: .26rem;
+}
+.ml-15 {
+margin-left: .3rem;
+}
+.ml-20 {
+margin-left: .4rem;
+}
+.mr-10 {
+margin-right: .2rem;
+}
+.mr-13 {
+margin-right: .26rem;
+}
+.mr-15 {
+margin-right: .3rem;
+}
+.mr-20 {
+margin-right: .4rem;
+}
+.mt-10 {
+margin-top: .2rem;
+}
+.mt-13 {
+margin-top: .26rem;
+}
+.mt-15 {
+margin-top: .3rem;
+}
+.mt-20 {
+margin-top: .4rem;
+}
+.mb-10 {
+margin-bottom: .2rem;
+}
+.mb-13 {
+margin-bottom: .26rem;
+}
+.mb-15 {
+margin-bottom: .3rem;
+}
+.mb-20 {
+margin-bottom: .4rem;
+}
+
+// padding
+.pub-10 {
+padding-top: .1rem;
+padding-bottom: .1rem;
+}
+.pl-10 {
+padding-left: .2rem;
+}
+.pl-13 {
+padding-left: .26rem;
+}
+.pl-15 {
+padding-left: .3rem;
+}
+.pl-20 {
+padding-left: .4rem;
+}
+.pr-10 {
+padding-right: .2rem;
+}
+.pr-13 {
+padding-right: .26rem;
+}
+.pr-15 {
+padding-right: .3rem;
+}
+.pr-20 {
+padding-right: .4rem;
+}
+.pt-10 {
+padding-top: .2rem;
+}
+.pt-13 {
+padding-top: .26rem;
+}
+.pt-15 {
+padding-top: .3rem;
+}
+.pt-20 {
+padding-top: .4rem;
+}
+.pb-10 {
+padding-bottom: .2rem;
+}
+.pb-13 {
+padding-bottom: .26rem;
+}
+.pb-15 {
+padding-bottom: .3rem;
+}
+.pb-20 {
+padding-bottom: .4rem;
+}
+.pb-25 {
+padding-bottom: .5rem;
+}
+
+// color
+.c-999 {
+color: #999;
+}
+.c-eee {
+color: #eee;
+}
+.c-666 {
+color: #666;
+}
+.c-282 {
+color: #282A2A;
+}
+.c-044 {
+color: #044897;
+}
+.c-f23 {
+color: #F23030;
+}
+// bg-color
+.bg-fff {
+background-color: #fff;
+}
+
+// width 
+.w-50 {
+width: 50%;
+}
+// line-height 
+.lh-10 {
+line-height: .5rem
+}
+
+//scale
+.sa-80{
+-webkit-transform: scale(0.80);
+}
+.sa-84{
+-webkit-transform: scale(0.84);
+}
+.sa-85{
+-webkit-transform: scale(0.85);
+}
+.sa-90{
+-webkit-transform: scale(0.9);
+}
+.sa-95{
+-webkit-transform: scale(0.95);
+}
+
+// display
+.di-ib{
+display: inline-block;
+}
+
+// font-size
+.ft-24 {
+font-size: .24rem
+}
