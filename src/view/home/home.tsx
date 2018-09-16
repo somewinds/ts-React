@@ -1,7 +1,12 @@
 import * as React from "react";
+import { RFooter } from '@/Footer/RFooter'
 
-export class home extends React.Component {
+export class  home extends React.Component<any, any> {
   render() {
-    return <h1>Hello from React</h1>;
+    return (
+      <div>
+        <RFooter />
+      </div>
+    )
   }
 }

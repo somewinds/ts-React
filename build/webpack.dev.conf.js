@@ -12,8 +12,6 @@ module.exports = merge(baseWebpackConfig, {
     publicPath: '/',
     open: true,
     hot: true,
-    port: 8888,
-    host: 'localhost',
     proxy: {},
     compress: true, // 开发服务器是否启动gzip等压缩
   },

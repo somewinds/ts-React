@@ -18,7 +18,8 @@
     "rootDirs": ["./src"],
     "baseUrl":  "./src",
     "paths": {
-      "@view/*": ["view/*"]
+      "@view/*": ["view/*"],
+      "@/*": ["components/*"]
     },
     "moduleResolution": "node",
     "module": "esnext",

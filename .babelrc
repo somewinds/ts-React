@@ -1,5 +1,5 @@
 {
   "presets": ["react", "stage-2", ["env", { "modules": false }]],
-  "plugins": ["transform-runtime", "react-hot-loader/babel"],
+  "plugins": ["transform-runtime", "react-hot-loader/babel", ["import", { "libraryName": "antd-mobile", "style": "css" }]],
   "comments": false
 }

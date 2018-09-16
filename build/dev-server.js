@@ -18,5 +18,5 @@ WebpackDevServer.addDevServerEntrypoints(webpackDevConfig, options)
 const compiler = webpack(webpackDevConfig);
 const app = new WebpackDevServer(compiler, options)
 app.listen(config.dev.port, config.dev.host, function() {
-  console.log(chalk.green("The server is starting... now to work ^_^"))
+  console.log(chalk.green(`The server is starting at port ${config.dev.port}... now to work ^_^`))
 })

@@ -2,9 +2,10 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { AppContainer } from 'react-hot-loader';
 import * as FastClick from 'fastclick';
-import './style/common.scss'
-import './config/rem'
 import Route from "./router"
+import './style/common.scss'
+import 'antd-mobile/dist/antd-mobile.css';
+import './config/rem'
 
 (FastClick as any).attach(document.body);
 
