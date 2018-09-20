@@ -1,8 +1,5 @@
 import * as React from 'react'
 import './RFooter.scss'
-import { Button }  from 'antd-mobile';
-
-
 export class RFooter extends React.Component {
   constructor (props: any) {
     super(props)
@@ -14,7 +11,7 @@ export class RFooter extends React.Component {
     return (
       <div className="rFooter">
         <div className="item"> 
-          <div>123</div>
+          <div className="home-img"></div>
           <span>首页</span>
         </div>
         <div className="item">
