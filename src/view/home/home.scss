@@ -1,0 +1,11 @@
+@import '../../style//mixin.scss';
+.home {
+  .down-app {
+    @include wh(100%, 1.6rem);
+    background-color: white;
+    padding: 0 .32rem;
+    font-size: .3733rem;
+    display: flex;
+    align-items: center;
+  }
+}

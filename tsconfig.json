@@ -24,7 +24,9 @@
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es5",
-    "jsx": "react"
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "include": [
     "./src/**/*"
