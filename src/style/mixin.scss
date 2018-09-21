@@ -1,5 +1,5 @@
 
-@mixin bg-image($url) {
+@mixin img($url) {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center center;
@@ -15,4 +15,12 @@
 @mixin wh($w, $h) {
   width: $w;
   height: $h;
+}
+
+@mixin flex($x:center, $y:center, $c:'') {
+  display: flex;
+  @if $x != null { justify-content: $x; }
+  @if $y != null { align-items: $y; }
+  @if $c == column { flex-flow: column; }
+
 }

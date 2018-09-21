@@ -1,23 +1,45 @@
 @import '../../style//mixin.scss';
 .rFooter {
-  display: flex;
-  align-content: center;
-  justify-content: space-around;
+  @include flex(space-around, null);
+  @include wh(100%, 1.3867rem);
   position: absolute;
-  width: 100%;
   bottom: 0;
-  height: 1.3867rem;
   background-color: #fff;
   border-top: 1px solid #c0bfc4;
   .item {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    text-align: center;
+    @include flex(center, center, column);
     font-size: .24rem;
     .home-img {
-      @include bg-image('../../images/ic_homepage_threesixone');
+      @include img('../../images/ic_homepage_threesixone');
       @include wh(.64rem, .64rem);
+      &.active {
+        @include img('../../images/ic_homepage_threesixone_elect');
+        @include wh(.64rem, .64rem);
+      }
+    }
+    .filed-img {
+      @include img('../../images/ic_place_threesixone');
+      @include wh(.64rem, .64rem);
+      &.active {
+        @include img('../../images/ic_place_threesixone_select');
+        @include wh(.64rem, .64rem);
+      }
+    }
+    .cart-img {
+      @include img('../../images/ic_shoppingcar_three_six_one');
+      @include wh(.64rem, .64rem);
+      &.active {
+        @include img('../../images/ic_shoppingcar_three_six_one_select');
+        @include wh(.64rem, .64rem);
+      }
+    }
+    .user-img {
+      @include img('../../images/ic_mine_threesixone');
+      @include wh(.64rem, .64rem);
+      &.active {
+        @include img('../../images/ic_mine_threesixone_select');
+        @include wh(.64rem, .64rem);
+      }
     }
     > span {
       margin-top: .1rem;

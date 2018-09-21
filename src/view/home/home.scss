@@ -2,10 +2,27 @@
 .home {
   .down-app {
     @include wh(100%, 1.6rem);
+    @include flex(null, center);
     background-color: white;
     padding: 0 .32rem;
     font-size: .3733rem;
-    display: flex;
-    align-items: center;
+    .app-icon {
+      @include img('../../images/ic_downlode_applogo_three');
+      @include wh(1.6rem, 1.6rem);
+      display: inline-block;
+    }
+    .app-desc {
+      flex: 3;
+      line-height: .55rem;
+      color: #666;
+    }
+    .app-btn {
+      flex: 1;
+      text-align: center;
+      background-color: #07f;
+      border-radius: .08rem;
+      color: white;
+      padding: .25rem .5rem;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { RFooter } from '@/Footer/RFooter'
 import { Carousel, WingBlank } from 'antd-mobile';
+import { getBanners } from '../../api'
 import './home.scss'
 
 export class  home extends React.Component<any, any> {
@@ -9,6 +10,11 @@ export class  home extends React.Component<any, any> {
     imgHeight: 176,
   }
   componentDidMount() {
+    let a 
+    getBanners(90).then(res => {
+      a = res
+      console.log(a, 1)
+    })
     setTimeout(() => {
       this.setState({
         data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
@@ -19,7 +25,14 @@ export class  home extends React.Component<any, any> {
     return (
       <div className="home">
         <div className="down-app">
-          <span></span>
+          <span className="app-icon"></span>
+          <div className="app-desc">
+            <p>更多完整实用功能</p>
+            <p>尽在邻汇吧客户端</p>
+          </div>
+          <div className="app-btn">
+            下载App
+          </div>
         </div>
         <div>
           <Carousel
@@ -40,7 +53,7 @@ export class  home extends React.Component<any, any> {
             ))}
           </Carousel>
         </div>
-        <RFooter />
+        <RFooter selectd="home" />
       </div>
     )
   }

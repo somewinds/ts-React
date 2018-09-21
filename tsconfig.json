@@ -19,7 +19,8 @@
     "baseUrl":  "./src",
     "paths": {
       "@view/*": ["view/*"],
-      "@/*": ["components/*"]
+      "@/*": ["components/*"],
+      "@src/*": ["/*"]
     },
     "moduleResolution": "node",
     "module": "esnext",

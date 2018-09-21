@@ -6,6 +6,7 @@ import Route from "./router"
 import './style/common.scss'
 import 'antd-mobile/dist/antd-mobile.css';
 import './config/rem'
+import './api/axios'
 
 (FastClick as any).attach(document.body);
 

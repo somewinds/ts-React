@@ -29,6 +29,9 @@ module.exports = merge(baseWebpackConfig, {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': config.build.env
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
