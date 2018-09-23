@@ -1,12 +1,21 @@
 import * as React from 'react';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { home } from 'view/home/home'
+import { filed } from 'view/fileds/filed'
+import { cart } from 'view/cart/cart'
+import { user } from 'view/users/user'
 
 export default class RouterConfig extends React.Component {
   render () {
     return (
       <HashRouter>
-        <Route path="/" exact component={home}></Route>
+        <Switch>
+          <Route path="/" exact component={home} />
+          <Route path="/filed" component={filed} />
+          <Route path="/cart" component={cart} />
+          <Route path="/user" component={user} />
+          <Redirect to="/" />
+        </Switch>
       </HashRouter>
     )
   }

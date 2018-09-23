@@ -12,9 +12,15 @@
   }
 }
 
-@mixin wh($w, $h) {
-  width: $w;
-  height: $h;
+@mixin wh($w, $h, $import: null) {
+  @if $import == null {
+    width: $w;
+    height: $h;
+  }
+  @if $import == true {
+    width: $w !important;
+    height: $h !important;
+  }
 }
 
 @mixin flex($x:center, $y:center, $c:'') {

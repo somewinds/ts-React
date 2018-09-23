@@ -33,15 +33,15 @@ Ax.interceptors.request.use(function (config) {
   } else {
     config.headers = Object.assign(config.headers, {Authorization: 'Bearer'})
   }
-
+  
   return config
 }, function (err) {
   return Promise.reject(err)
 })
 Ax.interceptors.response.use(function (response) {
-  return response;
+  return response
 }, function (error) {
-  return Promise.reject(error);
+  return Promise.reject(error)
 });
 
 export default Ax
