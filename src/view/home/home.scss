@@ -31,6 +31,29 @@
     @include wh(100%, 5rem);
   }
 
+  .search {
+    @include wh(auto, auto);
+    position: absolute;
+    top: 1.6rem;
+    margin: .1333rem .32rem;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 0.12rem 0;
+    .city {
+      @include flex(center,center);
+      padding: 0.182rem .232rem;
+      .icon-down {
+        @include img("../../images/ic_chevron_down_three_six_one");
+        @include wh(.2rem, .13333rem);
+      }
+      .name {
+        font-size: .4rem; 
+        margin-right: .15rem;
+        color: black;
+      }
+    }
+  }
+
   .navigation {
     @include flex(space-between, center);
     flex-wrap: wrap;

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { getSession, getCookie } from '../tool/tool'
-// const LANHAN = /lanhanba/ig
+
 const ONLINE = /linhuiba/ig
 
 let url

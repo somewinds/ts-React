@@ -18,9 +18,6 @@ export class  home extends React.Component<any, any> {
     this.getBanners()
     this.getNavigation()
   }
-  componentDidMount() {
-    console.log(123)
-  }
   getBanners () {
     getBanners(this.state.city_id).then(({ banners }) => {
       this.setState(({
@@ -58,6 +55,12 @@ export class  home extends React.Component<any, any> {
               </a>
             ))} 
           </Carousel>
+        </div>
+        <div className="search">
+          <div className="city">
+            <span className="name">杭州</span>
+            <span className="icon-down"></span>
+          </div>
         </div>
         <div className="navigation">
           {this.state.navigations.map((item: navigations) => (
