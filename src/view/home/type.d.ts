@@ -10,3 +10,8 @@ export interface navigations {
   title: string
   pic_url: string
 }
+export interface headLine {
+  id: number
+  title: number
+  origin: string | null
+}

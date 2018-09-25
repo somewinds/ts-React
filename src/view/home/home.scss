@@ -32,7 +32,8 @@
   }
 
   .search {
-    @include wh(auto, auto);
+    @include wh(94%, auto);
+    @include flex(null, center);
     position: absolute;
     top: 1.6rem;
     margin: .1333rem .32rem;
@@ -50,6 +51,20 @@
         font-size: .4rem; 
         margin-right: .15rem;
         color: black;
+      }
+    }
+    .search-input {
+      border-left: 1px solid #b4b4b4;
+      padding-left: .3rem;
+      @include flex(center,center);
+      .icon-search {
+        @include img("../../images/ic_search_normal_three_two");
+        @include wh(.48rem, .48rem);
+      }
+      .input {
+        font-size: .37333rem;
+        color: #b4b4b4;
+        margin-left: .2rem;
       }
     }
   }
@@ -99,6 +114,26 @@
     }
   }
 
+  .marquee {
+    background-color: white;
+    padding: 0 .37333rem;
+    .marquee-content {
+      @include flex(null, center);
+      padding: .53333rem 0;
+      border-bottom: 1px solid #eee;
+      .dynamic {
+        @include img('../../images/ic_linhuidongtai_three_three');
+        @include wh(2.5996rem, .48rem);
+        display: inline-block;
+        margin-right: .2rem;
+      }
+      .marquee-item {
+        font-size: .37333rem;
+        border-left: 1px solid #dcdcdc;
+        padding-left: .2rem;
+      }
+    }
+  }
 
 
 

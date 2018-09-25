@@ -1,8 +1,8 @@
 import * as React from "react";
 import { RFooter } from '@/Footer/RFooter'
-import { Carousel, WingBlank } from 'antd-mobile';
-import { getBanners, getNavigation } from '../../api'
-import { banners, navigations } from './type'
+import { Carousel } from 'antd-mobile';
+import { getBanners, getNavigation, getHeadlineNews } from '../../api'
+import { banners, navigations, headLine } from './type'
 import './home.scss'
 
 export class  home extends React.Component<any, any> {
@@ -11,12 +11,15 @@ export class  home extends React.Component<any, any> {
     this.state = {
       banners: [],
       navigations: [],
-      city_id: 90
+      headLine: [],
+      city_id: 90,
+      showMarquee: false,
     }
   }
   componentWillMount() {
     this.getBanners()
     this.getNavigation()
+    this.getHeadlineNews()
   }
   getBanners () {
     getBanners(this.state.city_id).then(({ banners }) => {
@@ -29,6 +32,14 @@ export class  home extends React.Component<any, any> {
     getNavigation().then(({ navigations }) => {
       this.setState({
         navigations
+      })
+    })
+  }
+  getHeadlineNews() {
+    getHeadlineNews().then(({ headLine }) => {
+      this.setState({
+        headLine,
+        showMarquee: true
       })
     })
   }
@@ -61,6 +72,10 @@ export class  home extends React.Component<any, any> {
             <span className="name">杭州</span>
             <span className="icon-down"></span>
           </div>
+          <div className="search-input">
+            <span className="icon-search"></span>
+            <span className="input">搜索小区/商圈/园区等关键词</span>
+          </div>
         </div>
         <div className="navigation">
           {this.state.navigations.map((item: navigations) => (
@@ -86,6 +101,21 @@ export class  home extends React.Component<any, any> {
             <p>活动</p>
           </div>
         </div>
+        {this.state.showMarquee ? <div className="marquee">
+          <div className="marquee-content">
+            <span className="dynamic"></span>
+            <Carousel className="marquee-item"
+              vertical
+              dots={false}
+              autoplay
+              infinite
+            >
+            {this.state.headLine.map((item: headLine) => (
+                <div className="ellipsis" style={{ width: '100%'}} key={item.id}>{item.title}</div>
+              ))}
+            </Carousel>
+          </div>
+        </div> : null}
         <RFooter selectd="home" />  
       </div>
     )

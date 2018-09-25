@@ -3,8 +3,8 @@ import { header } from '../config'
 /**
  * 获取首页banner
  * @version v1
+ * @method GET
  * @param {number} city_id
- * @returns {object}
  */
 export async function getBanners (city_id: number) {
   const res = await Ax.get('/api/banners',{
@@ -29,7 +29,7 @@ export async function getBanners (city_id: number) {
 /**
  * 获取首页导航栏
  * @version v1
- * @returns {object}
+ * @method GET
  */
 export async function getNavigation () {
   const res = await Ax.get('/api/home/app_navigations', {
@@ -41,6 +41,27 @@ export async function getNavigation () {
       id: item.id,
       title: item.title,
       pic_url: item.pic_url
+    }))
+  }
+}
+/**
+ * 获取邻汇头条
+ * @version v2
+ * @method GET
+ */
+export async function getHeadlineNews () {
+  const res = await Ax.get('/api/articles', {
+    params: {
+      article_type_id: 17
+    },
+    headers: header(2)
+  })
+  const { result } = res.data
+  return {
+    headLine: result.map((item:any) => ({
+      id: item.id,
+      title: item.name,
+      origin: item.origin || null
     }))
   }
 }

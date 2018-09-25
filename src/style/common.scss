@@ -89,6 +89,12 @@ a{
 color:#333;
 }
 
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 // margin
 .ml-10 {
 margin-left: .2rem;
