@@ -1,0 +1,130 @@
+@import '../../style//mixin.scss';
+.user {
+  padding-bottom: 1.786667rem;
+  .message {
+    @include wh(100%, 1.1733rem);
+    @include flex(flex-end, center);
+    padding: 0 .32rem;
+    background-color: white;
+    .message-icon {
+      @include wh(.58667rem, .58667rem);
+      @include img('../../images/ic_tongzhi_three_two');      display: inline-block;
+    }
+  }
+
+  .infor {
+    @include flex(space-between, center);
+    padding: .48rem 0 .48rem .32rem;
+    background-color: white;
+    .status {
+      @include flex(null, center);
+      .avatar {
+        @include wh(1.6rem, 1.6rem);
+        @include img('../../images/image_touxiang_three_two');
+        margin-right: .53333rem;
+      }
+      .is-login {
+        font-size: .4rem;
+        .company {
+          margin-bottom: .266667rem;
+        }
+        .certified {
+          font-size: .32rem;
+          color: #07f;
+        }
+      }
+      .not-login {
+        font-size: .373333rem;
+      }
+    }
+    .infor-user {
+      @include flex(null, center);
+      padding: 0 0 0 .3rem;
+      float: right;
+      color: #07f;
+      font-size: .32rem;
+      background-color: rgba(0,119,255,.1);
+      border-radius: 1rem 0 0 1rem;
+      .user-text {
+        padding: .2rem 0;
+        margin-top: .1rem;
+      }
+      .arrow-icon {
+        @include wh(.586667rem, .586667rem);
+        @include img('../../images/ic_more_blue_three_two');
+        display: inline-block;
+      }
+    }
+  }
+
+  .piece {
+    margin-top: .26667rem;
+    background-color: white;
+    padding: 0 .4rem;
+    .item {
+      @include flex(space-between, center);
+      font-size: .37333rem;
+      padding: .24rem 0;
+      .item-left {
+        @include flex(center, center);
+        .order-icon {
+          @include wh(.586667rem, .586667rem);
+          @include img('../../images/ic_dingdan_chosed_three_two');
+        }
+        .group-icon {
+          @include wh(.586667rem, .586667rem);
+          @include img('../../images/ic_wodepingtuan_three_two');
+        }
+        .inquiry-icon {
+          @include wh(.586667rem, .586667rem);
+          @include img('../../images/ic_xunjia_three_two');
+        }
+        .demand-icon {
+          @include wh(.586667rem, .586667rem);
+          @include img('../../images/ic_wodexuqiu_three_two');
+        }
+        .contact-icon {
+          @include wh(.586667rem, .586667rem);
+          @include img('../../images/ic_lianxiren_three_two');
+        }
+        .bill-icon {
+          @include wh(.586667rem, .586667rem);
+          @include img('../../images/ic_piaoju_three_two');
+        }
+        .wallet-icon {
+          @include wh(.586667rem, .586667rem);
+          @include img('../../images/ic_wodeqianbao_three_two');
+        }
+        .attention-icon {
+          @include wh(.586667rem, .586667rem);
+          @include img('../../images/ic_wodeguanzhu_three_two');
+        }
+        .customer-icon {
+          @include wh(.586667rem, .586667rem);
+          @include img('../../images/ic_kefu_three_two');
+        }
+        .invitation-icon {
+          @include wh(.586667rem, .586667rem);
+          @include img('../../images/ic_yaooqing_three_two');
+        }
+        .help-icon {
+          @include wh(.586667rem, .586667rem);
+          @include img('../../images/ic_bangzhu_three_two');
+        }
+        .item-text {
+          margin-left: .1333rem;
+        }
+      }
+      .item-right {
+        @include wh(.286667rem, .386667rem);
+        @include img('../../images/ic_more_three_two');
+      }
+      &:not(:last-child) {
+        border-bottom: 1px solid #eee;
+      }
+    }
+  }
+
+
+
+}

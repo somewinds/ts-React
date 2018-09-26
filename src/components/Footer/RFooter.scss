@@ -2,7 +2,7 @@
 .rFooter {
   @include flex(space-around, null);
   @include wh(100%, 1.3867rem);
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background-color: #fff;
   border-top: 1px solid #c0bfc4;
