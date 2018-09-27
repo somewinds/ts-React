@@ -5,7 +5,7 @@ import { getBanners, getNavigation, getHeadlineNews } from '../../api'
 import { banners, navigations, headLine } from './type'
 import './home.scss'
 
-export class  home extends React.Component<any, any> {
+export class home extends React.Component<any, any> {
   constructor (props: any) {
     super(props)
     this.state = {

@@ -3,7 +3,7 @@ import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { home } from 'view/home/home'
 import { filed } from 'view/fileds/filed'
 import { cart } from 'view/cart/cart'
-import { user } from 'view/users/user'
+import { user, Aa } from 'view/users/user'
 
 export default class RouterConfig extends React.Component {
   render () {
@@ -15,6 +15,7 @@ export default class RouterConfig extends React.Component {
           <Route path="/cart" component={cart} />
           <Route path="/user" component={user} />
           <Redirect to="/" />
+          <Aa />
         </Switch>
       </HashRouter>
     )

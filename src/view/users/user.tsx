@@ -1,50 +1,70 @@
 import * as React from "react";
 import { RFooter } from '@/Footer/RFooter'
+import { HashRouter ,Switch, Route, Redirect, NavLink } from 'react-router-dom';
+import { getSession } from '../../tool'
 import './user.scss'
+import { orderManagement } from './component/orderManagement'
 
+const Products = () => (
+  <div>
+    <h2>Products</h2>
+  </div>
+)
 export class user extends React.Component<any, any> {
   constructor(prop: any) {
     super(prop)
     this.state = {
-      isLogin: true
+      isLogin: getSession('login') || null
     }
   }
   render () {
     const lists = [[{
       title: '订单管理',
-      icon: 'order-icon'
+      icon: 'order-icon',
+      router: '/orderManagement'
     },{
       title: '我的拼团',
-      icon: 'group-icon'
+      icon: 'group-icon',
+      router: ''
     },{
       title: '我的询价',
-      icon: 'inquiry-icon'
+      icon: 'inquiry-icon',
+      router: ''
     },{
       title: '我的需求',
-      icon: 'demand-icon'
+      icon: 'demand-icon',
+      router: ''
     }],[{
       title: '联系人管理',
-      icon: 'contact-icon'
+      icon: 'contact-icon',
+      router: ''
     },{
       title: '票据管理',
-      icon: 'bill-icon'
+      icon: 'bill-icon',
+      router: ''
     }],[{
       title: '我的钱包',
-      icon: 'wallet-icon'
+      icon: 'wallet-icon',
+      router: ''
     },{
       title: '我的关注',
-      icon: 'attention-icon'
+      icon: 'attention-icon',
+      router: ''
     }],[{
       title: '联系客服',
-      icon: 'customer-icon'
+      icon: 'customer-icon',
+      router: ''
     },{
       title: '邀请有奖',
-      icon: 'invitation-icon'
+      icon: 'invitation-icon',
+      router: ''
     },{
       title: '帮助中心',
-      icon: 'help-icon'
+      icon: 'help-icon',
+      router: ''
     }]]
     return (
+      <HashRouter>
       <div className="user">
         <div className="message">
           <span className="message-icon"></span>
@@ -67,18 +87,18 @@ export class user extends React.Component<any, any> {
           </div>
         </div>
         {
-         lists.map((list: any) => {
+         lists.map((list: any, index: number) => {
            return (
-            <div className="piece">
+            <div className="piece" key={index}>
               {
-                list.map((item: any) => (
-                  <div className="item">
+                list.map((item: any, inde: number) => (
+                  <NavLink to={item.router} className="item" key={inde}>
                     <div className="item-left">
                       <div className={ item.icon }></div>
                       <span className="item-text">{ item.title }</span>
                     </div>
                     <div className="item-right"></div>
-                  </div>
+                  </NavLink>
                 ))
               }
              </div>
@@ -86,7 +106,15 @@ export class user extends React.Component<any, any> {
          })
         }
         <RFooter selectd='user' />
+        <Switch>
+          <Route path="/orderManagement" exact component={Products} />
+        </Switch>
+          {/* <Redirect path="/orderManagement" to={{pathname: '/orderManagement'}} /> */}
       </div>
+      </HashRouter>
     )
   }
 }
+export const Aa = () => (
+  <Route path="/orderManagement" exact component={Products} />
+)

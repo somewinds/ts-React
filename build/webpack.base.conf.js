@@ -20,7 +20,7 @@ const webpackConfig = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.json'],
     alias: {
-      "src": path.join(__dirname, '..', 'src'),
+      "@src": path.join(__dirname, '..', 'src'),
       "view": path.join(__dirname, '..', 'src/view'),
       "@": path.join(__dirname, '..', 'src/components')
     }
