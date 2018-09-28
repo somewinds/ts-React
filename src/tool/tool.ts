@@ -1,15 +1,12 @@
 
-export const getStorage = (key: string) => {
-  if( !key ){ return false }
-  return JSON.parse( window.localStorage.getItem( key ) ) 
-}
+export const getStorage = (key: string) => JSON.parse(window.localStorage.getItem(key) || '')
 
 export const setStorage = (key: string , value: any) => {
   if( !key && !value ){ return false}
   try {
     value = JSON.stringify( value ) 
   } catch (err) {
-    console.error(`setStorage: The value ${value} is not safe s`)
+    console.error(`setStorage: The value ${value} is not safe JSON`)
   }
   window.localStorage.setItem( key , value ) 
 }
@@ -19,10 +16,7 @@ export const removeStorage = (key: string) => {
   return window.localStorage.removeItem(key) 
 }
 
-export const getSession = (key: string) => {
-  if( !key ){ return false }
-  return JSON.parse( window.sessionStorage.getItem( key ) ) 
-}
+export const getSession = (key: string) => JSON.parse( window.sessionStorage.getItem(key) || 'null')
 
 export const setSession = ( key: string , value: any ) => {
   if( !key && !value ){ return false}

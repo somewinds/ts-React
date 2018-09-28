@@ -23,10 +23,10 @@ let Ax = axios.create({
 Ax.interceptors.request.use(function (config) {
   let apikey = ''
   let key = getSession('key')
-  if (key) {
+  if (key !== null) {
     apikey = key.slice(2 , -8)
   } else {
-    if (getCookie("LINHUIBA_KEY")) apikey = getCookie("LINHUIBA_KEY").slice(2, -8)
+    apikey = (getCookie("LINHUIBA_KEY") || '').slice(2, -8)
   }
   if (apikey) {
     config.headers = Object.assign(config.headers, {Authorization: `Bearer${apikey}`, client: 'wap'})

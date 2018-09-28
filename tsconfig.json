@@ -5,7 +5,9 @@
     "noImplicitAny": true,
     "allowJs": true,
     "alwaysStrict": true,
+    "strictPropertyInitialization": true,
     "experimentalDecorators": true,
+    "strictNullChecks": true,
     "lib": [
       "esnext",
       "es7",
@@ -27,7 +29,8 @@
     "target": "es5",
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "pretty": true
   },
   "include": [
     "./src/**/*"
