@@ -2,10 +2,28 @@ import * as React from "react";
 import { RFooter } from '@/Footer/RFooter'
 import { Carousel } from 'antd-mobile';
 import { getBanners, getNavigation, getHeadlineNews } from '../../api'
-import { banners, navigations, headLine } from './type'
 import './home.scss'
 
+interface banners {
+  id: number
+  link: string
+  pic_url: string
+  title: string
+}
+
+interface navigations {
+  id: number
+  title: string
+  pic_url: string
+}
+interface headLine {
+  id: number
+  title: number
+  origin: string | null
+}
+
 export class home extends React.Component<any, any> {
+  isCancelled = false
   constructor (props: any) {
     super(props)
     this.state = {
@@ -21,23 +39,26 @@ export class home extends React.Component<any, any> {
     this.getNavigation()
     this.getHeadlineNews()
   }
+  componentWillUnmount () {
+    this.isCancelled = true
+  }
   getBanners () {
     getBanners(this.state.city_id).then(({ banners }) => {
-      this.setState(({
+      !this.isCancelled && this.setState(({
         banners
       }))
     })
   }
   getNavigation () {
     getNavigation().then(({ navigations }) => {
-      this.setState({
+      !this.isCancelled && this.setState({
         navigations
       })
     })
   }
   getHeadlineNews() {
     getHeadlineNews().then(({ headLine }) => {
-      this.setState({
+      !this.isCancelled && this.setState({
         headLine,
         showMarquee: true
       })
