@@ -28,5 +28,10 @@
   @if $x != null { justify-content: $x; }
   @if $y != null { align-items: $y; }
   @if $c == column { flex-flow: column; }
+}
 
+@mixin scw($fontSize, $color, $weight) {
+  @if $fontSize != null {font-size: $fontSize; }
+  @if $color != null { color: $color; }
+  @if $weight != null { font-weight: $weight; }
 }

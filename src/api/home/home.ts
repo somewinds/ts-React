@@ -1,5 +1,6 @@
 import Ax from '../axios'
 import { header } from '../config'
+import { WonderfulCase } from './type'
 /**
  * 获取首页banner
  * @version v1
@@ -64,4 +65,19 @@ export async function getHeadlineNews () {
       origin: item.origin || null
     }))
   }
+}
+
+/**
+ * 获取经典案例
+ * @version v1
+ * @method GET
+ * @param {WonderfulCase} obj
+ */
+export async function getWonderfulCase (obj: WonderfulCase) {
+  const res = await Ax.get('/api/activity_cases', {
+    params: obj,
+    headers: header(1)
+  })
+  const { result } = res.data
+  return result
 }

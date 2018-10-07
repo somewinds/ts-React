@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 let Ax = axios.create({
   baseURL: url,
-  timeout: 5000,
+  timeout: 50000,
   headers: {
     "Content-Type" : "application/json"
   }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export class rHeader extends React.Component {
+export class RHeader extends React.Component {
   constructor (props: any) {
     super(props)
     this.state = {

@@ -1,0 +1,24 @@
+.RS-swiper {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  visibility: visible;
+  overflow: hidden;
+
+  .RS-view {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    transform: translate3d(0px, 0px, 0px);
+    box-sizing: border-box;
+    .RS-item {
+      display: inline-block;
+    }
+  }
+  
+}

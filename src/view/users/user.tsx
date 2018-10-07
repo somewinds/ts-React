@@ -1,14 +1,11 @@
 import * as React from "react";
 import { RFooter } from '@/Footer/RFooter'
-import { HashRouter, Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 import { getSession } from '../../tool'
 import './user.scss'
 import { orderManagement } from './component/orderManagement'
 
-
-
-// const user = 
-export class User extends React.Component<any, any> {
+class User extends React.Component<any, any> {
   constructor(prop: any) {
     super(prop)
     this.state = {
@@ -103,10 +100,19 @@ export class User extends React.Component<any, any> {
          })
         }
         <RFooter selectd='user' />
-        <Switch>
-          <Route path="/orderManagement" exact component={orderManagement} />
-        </Switch>
       </div>
+    )
+  }
+}
+
+export class Users extends React.Component {
+  render () {
+    return (
+      <Switch>
+        <Route path="/user" component={User} />
+        <Route path="/orderManagement" exact component={orderManagement} />
+        <Redirect to="/" />
+      </Switch>
     )
   }
 }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Switch, Route } from 'react-router-dom';
-class login extends React.Component<any, any> {
+class Login extends React.Component<any, any> {
   render () {
     return (
       <div>
@@ -9,8 +9,13 @@ class login extends React.Component<any, any> {
     )
   }
 }
-export const Login = () => (
 
-  <Route path="/login" component={login} />
-
-)
+export class Logins extends React.Component<any, any> {
+  render () {
+    return (
+      <Switch>
+        <Route path="/login" component={Login}  />
+      </Switch>
+    )
+  }
+}

@@ -1,6 +1,7 @@
-import * as React from "react";
+import * as React from "react"
+import { Carousel } from 'antd-mobile'
 import { RFooter } from '@/Footer/RFooter'
-import { Carousel } from 'antd-mobile';
+import RSwiper from '@/Swiper/RSwiper'
 import { getBanners, getNavigation, getHeadlineNews } from '../../api'
 import './home.scss'
 
@@ -122,21 +123,36 @@ export class home extends React.Component<any, any> {
             <p>活动</p>
           </div>
         </div>
-        {this.state.showMarquee ? <div className="marquee">
-          <div className="marquee-content">
-            <span className="dynamic"></span>
-            <Carousel className="marquee-item"
-              vertical
-              dots={false}
-              autoplay
-              infinite
-            >
-            {this.state.headLine.map((item: headLine) => (
-                <div className="ellipsis" style={{ width: '100%'}} key={item.id}>{item.title}</div>
-              ))}
-            </Carousel>
+        {this.state.showMarquee ? 
+          <div className="marquee">
+            <div className="marquee-content">
+              <span className="dynamic"></span>
+              <Carousel className="marquee-item"
+                vertical
+                dots={false}
+                // autoplay
+                infinite
+              >
+              {this.state.headLine.map((item: headLine) => (
+                  <div className="ellipsis" style={{ width: '100%'}} key={item.id}>{item.title}</div>
+                ))}
+       s       </Carousel>
+            </div>
+          </div> : null}
+          <div className="case">
+            <span className="case-title">精彩案例</span>
+            <div className="view-all">
+              <span className="title">查看全部</span>
+              <span className="arrow-icon"></span>
+            </div>
           </div>
-        </div> : null}
+          <div className="one">
+          <RSwiper>
+            <div className ="test"></div>
+            <div className ="test"></div>
+            <div className ="test"></div>
+          </RSwiper>
+          </div>
         <RFooter selectd="home" />  
       </div>
     )

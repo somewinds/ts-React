@@ -1,10 +1,14 @@
 import * as React from 'react'
 import { NavLink } from 'react-router-dom'
 import './RFooter.scss'
-import { footer } from '../type'
 
-export class RFooter extends React.Component<footer, any> {
-  constructor (props: footer) {
+
+interface Footer { 
+  selectd: string
+}
+
+export class RFooter extends React.Component<Footer, any> {
+  constructor (props: Footer) {
     super(props)
   }
   render () {
