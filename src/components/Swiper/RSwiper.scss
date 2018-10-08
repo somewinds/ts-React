@@ -15,9 +15,14 @@
     margin: 0px;
     padding: 0px;
     transform: translate3d(0px, 0px, 0px);
+    transition-duration: 0ms;
     box-sizing: border-box;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; 
     .RS-item {
       display: inline-block;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
   }
   

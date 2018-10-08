@@ -68,7 +68,7 @@ export async function getHeadlineNews () {
 }
 
 /**
- * 获取经典案例
+ * 获取精彩案例
  * @version v1
  * @method GET
  * @param {WonderfulCase} obj
@@ -81,3 +81,4 @@ export async function getWonderfulCase (obj: WonderfulCase) {
   const { result } = res.data
   return result
 }
+

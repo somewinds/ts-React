@@ -147,7 +147,7 @@ export class home extends React.Component<any, any> {
             </div>
           </div>
           <div className="one">
-          <RSwiper>
+          <RSwiper padding={5}>
             <div className ="test"></div>
             <div className ="test"></div>
             <div className ="test"></div>
