@@ -5,7 +5,7 @@ import { getSession } from '../../tool'
 import './user.scss'
 import { orderManagement } from './component/orderManagement'
 
-class User extends React.Component<any, any> {
+export class User extends React.Component<any, any> {
   constructor(prop: any) {
     super(prop)
     this.state = {
@@ -105,14 +105,13 @@ class User extends React.Component<any, any> {
   }
 }
 
-export class Users extends React.Component {
-  render () {
-    return (
-      <Switch>
-        <Route path="/user" component={User} />
-        <Route path="/orderManagement" exact component={orderManagement} />
-        <Redirect to="/" />
-      </Switch>
-    )
-  }
-}
+// export class Users extends React.Component {
+//   render () {
+//     return (
+//       <Switch>
+//         <Route path="/user" component={User} />
+//         <Route path="/orderManagement" component={orderManagement} />}
+//       </Switch>
+//     )
+//   }
+// }
