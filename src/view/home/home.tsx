@@ -2,7 +2,7 @@ import * as React from "react"
 import { Carousel } from 'antd-mobile'
 import { RFooter } from '@/Footer/RFooter'
 import RSwiper from '@/Swiper/RSwiper'
-import { getBanners, getNavigation, getHeadlineNews } from '../../api'
+import { getBanners, getNavigation, getHeadlineNews, getWonderfulCase } from '../../api'
 import './home.scss'
 
 interface banners {
@@ -22,6 +22,11 @@ interface headLine {
   title: number
   origin: string | null
 }
+interface caseLists {
+  id: number
+  title: string
+  pic_url: string
+}
 
 export class home extends React.Component<any, any> {
   isCancelled = false
@@ -31,6 +36,7 @@ export class home extends React.Component<any, any> {
       banners: [],
       navigations: [],
       headLine: [],
+      caseLists: [],
       city_id: 90,
       showMarquee: false,
     }
@@ -39,6 +45,10 @@ export class home extends React.Component<any, any> {
     this.getBanners()
     this.getNavigation()
     this.getHeadlineNews()
+    this.getWonderfulCase()
+  }
+  componentDidMount () {
+    window.addEventListener('scroll', this.listenSearchScoll.bind(this), false)
   }
   componentWillUnmount () {
     this.isCancelled = true
@@ -65,6 +75,20 @@ export class home extends React.Component<any, any> {
       })
     })
   }
+  getWonderfulCase () {
+    getWonderfulCase({page_size: 4, city_id: 90}).then(({ caseLists }) => {
+      !this.isCancelled && this.setState({
+        caseLists
+      })
+    })
+  }
+  listenSearchScoll () {
+    let top = document.body.scrollTop || document.documentElement.scrollTop || window.scrollY
+    let search: any = this.refs.search
+
+    search.className = top >= (search.offsetTop + search.clientHeight) ?
+      'scroll-search scoll' : 'scroll-search'
+  }
   render() {
     return (
       <div className="home">
@@ -89,14 +113,16 @@ export class home extends React.Component<any, any> {
             ))} 
           </Carousel>
         </div>
-        <div className="search">
-          <div className="city">
-            <span className="name">杭州</span>
-            <span className="icon-down"></span>
-          </div>
-          <div className="search-input">
-            <span className="icon-search"></span>
-            <span className="input">搜索小区/商圈/园区等关键词</span>
+        <div className="scroll-search" ref="search">
+          <div className="search">
+            <div className="city">
+              <span className="name">杭州</span>
+              <span className="icon-down"></span>
+            </div>
+            <div className="search-input">
+              <span className="icon-search"></span>
+              <span className="input">搜索小区/商圈/园区等关键词</span>
+            </div>
           </div>
         </div>
         <div className="navigation">
@@ -130,13 +156,13 @@ export class home extends React.Component<any, any> {
               <Carousel className="marquee-item"
                 vertical
                 dots={false}
-                // autoplay
+                autoplay
                 infinite
               >
               {this.state.headLine.map((item: headLine) => (
                   <div className="ellipsis" style={{ width: '100%'}} key={item.id}>{item.title}</div>
                 ))}
-       s       </Carousel>
+              </Carousel>
             </div>
           </div> : null}
           <div className="case">
@@ -146,12 +172,19 @@ export class home extends React.Component<any, any> {
               <span className="arrow-icon"></span>
             </div>
           </div>
-          <div className="one">
-          <RSwiper padding={5}>
-            <div className ="test"></div>
-            <div className ="test"></div>
-            <div className ="test"></div>
-          </RSwiper>
+          <div className="case-detial">
+            <RSwiper padding={5}>
+              {
+                this.state.caseLists.map((item: caseLists) => (
+                  <div className="item" key={item.id}>
+                    <img src={item.pic_url} />
+                    <div className="item-title ellipsis">
+                      {item.title}
+                    </div>
+                  </div>
+                ))
+              }
+            </RSwiper>
           </div>
         <RFooter selectd="home" />  
       </div>

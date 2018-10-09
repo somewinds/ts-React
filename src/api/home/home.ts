@@ -79,6 +79,12 @@ export async function getWonderfulCase (obj: WonderfulCase) {
     headers: header(1)
   })
   const { result } = res.data
-  return result
+  return {
+    caseLists: result.data.map((item: any) => ({
+      id: item.id,
+      title: item.title,
+      pic_url: item.cover_pic_url
+    }))
+  }
 }
 

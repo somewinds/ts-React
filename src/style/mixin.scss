@@ -30,7 +30,7 @@
   @if $c == column { flex-flow: column; }
 }
 
-@mixin scw($fontSize, $color, $weight) {
+@mixin scw($fontSize: null, $color: null, $weight: null) {
   @if $fontSize != null {font-size: $fontSize; }
   @if $color != null { color: $color; }
   @if $weight != null { font-weight: $weight; }

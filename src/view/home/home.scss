@@ -32,39 +32,53 @@
     @include wh(100%, 5rem);
   }
 
-  .search {
-    @include wh(94%, auto);
-    @include flex(null, center);
+  .scroll-search {
+    @include wh(100%, auto);
     position: absolute;
     top: 1.6rem;
-    margin: .1333rem .32rem;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 0 0.12rem 0;
-    .city {
-      @include flex(center,center);
-      padding: 0.182rem .232rem;
-      .icon-down {
-        @include img("../../images/ic_chevron_down_three_six_one");
-        @include wh(.2rem, .13333rem);
-      }
-      .name {
-        @include scw(.4rem, black, null);
-        margin-right: .15rem;
+    &.scoll {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: white;
+      box-shadow: 0 0 1px 0 rgba(204, 204, 204, 0.5);
+      .search {
+        box-shadow: 0 0 0 0;
+        background-color: #F8F8F8;
       }
     }
-    .search-input {
-      @include flex(center,center);
-      border-left: 1px solid #b4b4b4;
-      padding-left: .3rem;
-      .icon-search {
-        @include img("../../images/ic_search_normal_three_two");
-        @include wh(.48rem, .48rem);
+    .search {
+      @include wh(94%, auto);
+      @include flex(null, center);
+      margin: .1333rem .32rem;
+      background-color: #fff;
+      border-radius: 2px;
+      box-shadow: 0 0 0.12rem 0;
+      .city {
+        @include flex(center,center);
+        padding: 0.182rem .232rem;
+        .icon-down {
+          @include img("../../images/ic_chevron_down_three_six_one");
+          @include wh(.2rem, .13333rem);
+        }
+        .name {
+          @include scw(.4rem, black, null);
+          margin-right: .15rem;
+        }
       }
-      .input {
-        font-size: .37333rem;
-        color: #b4b4b4;
-        margin-left: .2rem;
+      .search-input {
+        @include flex(center,center);
+        border-left: 1px solid #b4b4b4;
+        padding-left: .3rem;
+        .icon-search {
+          @include img("../../images/ic_search_normal_three_two");
+          @include wh(.48rem, .48rem);
+        }
+        .input {
+          font-size: .37333rem;
+          color: #b4b4b4;
+          margin-left: .2rem;
+        }
       }
     }
   }
@@ -155,11 +169,21 @@
     }
   }
 
-  .one {
-    .test {
-      @include wh(4rem, 7rem);
-      padding: .5rem .5rem;
-      background-color: red
+  .case-detial {
+    background-color: white;
+    padding: 0 .186667rem;
+    padding-top: .266667rem;
+    .item {
+      @include wh(6.4rem, 4.69333rem);
+      box-shadow: 2px 2px 8px 0 rgba(153, 153, 153, 0.2);
+      >img {
+        @include wh(100%, 3.52rem);
+        background-size: 100% 100%;
+      }
+      .item-title {
+        @include scw(.426667rem, #3A4042, bold);
+        padding: .266667rem .266667rem .4266667rem .266667rem;
+      }
     }
   }
 

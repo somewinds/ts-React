@@ -19,18 +19,19 @@ export default class RSwiper extends React.Component<swiperAttribute, any> {
       name: ''
     }
   }
-  componentDidMount () {
+  componentDidUpdate () {
     this.handleInitUlWidth()
   }
   handleTouchStart (event: any){
     event.preventDefault()
+
     RSwiper.start = event.touches[0].screenX
   }
   handleTouchMove (event: any) {
     let moveX = event.touches[0].screenX
     let swiper: any = this.refs.swiperItem
 
-    RSwiper.move = RSwiper.nowMove + moveX - RSwiper.start
+    RSwiper.move = RSwiper.nowMove + (moveX - RSwiper.start) / 2
     swiper.style.transitionDuration = '0ms'
     swiper.style.transform= `translate3d(${RSwiper.move}px, 0px, 0px)`
   }
@@ -46,18 +47,18 @@ export default class RSwiper extends React.Component<swiperAttribute, any> {
       RSwiper.nowMove = 0
       swiper.style.transitionDuration = '300ms'
       swiper.style.transform= 'translate3d(0px, 0px, 0px)'
-    } else {
-      RSwiper.nowMove = RSwiper.move
+    } else { 
+      RSwiper.nowMove = RSwiper.move 
     }
   }
   handleInitUlWidth () {
     let swiper: any = this.refs.swiperItem
-    let _heiget = 0
+    let _width = 0
 
     Array.from(swiper.children).forEach((item: any) => {
-      _heiget += item.clientWidth
+      _width += item.clientWidth
     });
-    swiper.style.width = `${_heiget}px`
+    swiper.style.width = `${_width}px`
   }
   render () {
     return (
