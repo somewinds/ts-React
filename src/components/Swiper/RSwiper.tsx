@@ -6,9 +6,10 @@ interface swiperAttribute {
 }
 
 export default class RSwiper extends React.Component<swiperAttribute, any> {
-  static start = 0
-  static move = 0
-  static nowMove = 0
+  private start = 0
+  private move = 0
+  private nowMove = 0
+  private swiperItem: React.RefObject<HTMLDivElement>;
 
   static defaultProps = {
     padding:　0,
@@ -18,56 +19,59 @@ export default class RSwiper extends React.Component<swiperAttribute, any> {
     this.state = {
       name: ''
     }
+    this.swiperItem = React.createRef()
   }
   componentDidUpdate () {
     this.handleInitUlWidth()
   }
-  handleTouchStart (event: any){
-    event.preventDefault()
-
-    RSwiper.start = event.touches[0].screenX
+  handleTouchStart (event: TouchEvent){
+    this.start = event.touches[0].screenX
   }
-  handleTouchMove (event: any) {
+  handleTouchMove (event: TouchEvent) {
     let moveX = event.touches[0].screenX
-    let swiper: any = this.refs.swiperItem
 
-    RSwiper.move = RSwiper.nowMove + (moveX - RSwiper.start) / 2
-    swiper.style.transitionDuration = '0ms'
-    swiper.style.transform= `translate3d(${RSwiper.move}px, 0px, 0px)`
+    this.move = this.nowMove + (moveX - this.start) / 2
+    
+    if (this.swiperItem.current !== null) {
+      this.swiperItem.current.style.transitionDuration = '0ms'
+      this.swiperItem.current.style.transform= `translate3d(${this.move}px, 0px, 0px)`
+    } else { console.error("Refs<swiperItem>: Is null") }
   }
   handleTouchEnd () {
-    let swiper: any = this.refs.swiperItem
-    let maxX = swiper.clientWidth - document.body.clientWidth
+    if (this.swiperItem.current !== null) {
+      let maxX = this.swiperItem.current.clientWidth - document.body.clientWidth
 
-    if (RSwiper.move < -maxX) {
-      RSwiper.nowMove = -maxX
-      swiper.style.transitionDuration = '300ms'
-      swiper.style.transform= `translate3d(${-maxX}px, 0px, 0px)`
-    } else if (RSwiper.move > 0) {
-      RSwiper.nowMove = 0
-      swiper.style.transitionDuration = '300ms'
-      swiper.style.transform= 'translate3d(0px, 0px, 0px)'
-    } else { 
-      RSwiper.nowMove = RSwiper.move 
-    }
+      if (this.move < -maxX) {
+        this.nowMove = -maxX
+        this.swiperItem.current.style.transitionDuration = '300ms'
+        this.swiperItem.current.style.transform= `translate3d(${-maxX}px, 0px, 0px)`
+      } else if (this.move > 0) {
+        this.nowMove = 0
+        this.swiperItem.current.style.transitionDuration = '300ms'
+        this.swiperItem.current.style.transform= 'translate3d(0px, 0px, 0px)'
+      } else { 
+        this.nowMove = this.move
+      }
+    } else { console.error("Refs<swiperItem>: Is null") }
   }
   handleInitUlWidth () {
-    let swiper: any = this.refs.swiperItem
-    let _width = 0
+    if (this.swiperItem.current !== null) {
+      let _width = 0
 
-    Array.from(swiper.children).forEach((item: any) => {
-      _width += item.clientWidth
-    });
-    swiper.style.width = `${_width}px`
+      Array.from(this.swiperItem.current.children).forEach((item: any) => {
+        _width += item.clientWidth
+      });
+      this.swiperItem.current.style.width = `${_width}px`
+    } else { console.error("Refs<swiperItem>: Is null") }
   }
   render () {
     return (
       <div className="RS-swiper">
-        <div className="RS-view" ref="swiperItem">
+        <div className="RS-view" ref={this.swiperItem}>
           {
             (this.props.children as Array<any>).map((item: any, index: number) => (
                 <div className="RS-item" 
-                  onTouchStart={this.handleTouchStart.bind(this)} 
+                  onTouchStart={this.handleTouchStart.bind(this)}
                   onTouchMove={this.handleTouchMove.bind(this)} 
                   onTouchEnd={this.handleTouchEnd.bind(this)} 
                   key={index} 

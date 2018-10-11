@@ -1,5 +1,7 @@
 import * as React from "react"
 import { Carousel } from 'antd-mobile'
+import { LazyImage } from "react-lazy-images"
+
 import { RFooter } from '@/Footer/RFooter'
 import RSwiper from '@/Swiper/RSwiper'
 import { getBanners, getNavigation, getHeadlineNews, getWonderfulCase } from '../../api'
@@ -48,7 +50,16 @@ export class home extends React.Component<any, any> {
     this.getWonderfulCase()
   }
   componentDidMount () {
-    window.addEventListener('scroll', this.listenSearchScoll.bind(this), false)
+    var supportsPassive = false;
+    try {
+      var opts = Object.defineProperty({}, 'passive', {
+        get: function() {
+          supportsPassive = true;
+        }
+      });
+      window.addEventListener("test", () => {}, opts);
+    } catch (e) {}
+    window.addEventListener('scroll', this.listenSearchScoll.bind(this), supportsPassive ? { passive: true } : false)
   }
   componentWillUnmount () {
     this.isCancelled = true
@@ -86,13 +97,19 @@ export class home extends React.Component<any, any> {
     let top = document.body.scrollTop || document.documentElement.scrollTop || window.scrollY
     let search: any = this.refs.search
 
-    search.className = top >= (search.offsetTop + search.clientHeight) ?
-      'scroll-search scoll' : 'scroll-search'
+    if (Array.from(search.classList).indexOf('scoll') === -1) {
+      search.className = top >= (search.offsetTop) ?
+        'scroll-search scoll' : 'scroll-search'
+        
+    } else {
+      search.className = top >= (search.clientHeight + search.offsetTop) ?
+        'scroll-search scoll' : 'scroll-search'
+    }
   }
   render() {
     return (
       <div className="home">
-        <div className="down-app">
+        <div className="down-app" id="down-app">
           <span className="app-icon"></span>
           <div className="app-desc">
             <p>更多完整实用功能</p>
@@ -167,6 +184,27 @@ export class home extends React.Component<any, any> {
           </div> : null}
           <div className="case">
             <span className="case-title">精彩案例</span>
+            <div className="view-all">
+              <span className="title">查看全部</span>
+              <span className="arrow-icon"></span>
+            </div>
+          </div>
+          <div className="case-detial">
+            <RSwiper padding={5}>
+              {
+                this.state.caseLists.map((item: caseLists) => (
+                  <div className="item" key={item.id}>
+                    <img src={item.pic_url} />
+                    <div className="item-title ellipsis">
+                      {item.title}
+                    </div>
+                  </div>
+                ))
+              }
+            </RSwiper>
+          </div>
+          <div className="case">
+            <span className="case-title">优质服务商</span>
             <div className="view-all">
               <span className="title">查看全部</span>
               <span className="arrow-icon"></span>

@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const config = require('../config')
@@ -46,6 +46,6 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new webpack.WatchIgnorePlugin([/\.js$/, /\.d\.ts$/]), // 忽略掉 d.ts 文件，避免因为编译生成 d.ts 文件导致又重新检查。
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin()
   ],
 })
