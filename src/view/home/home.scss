@@ -37,11 +37,10 @@
     position: absolute;
     top: 1.6rem;
     &.scoll {
-      position: fixed;
-      top: 0;
-      left: 0;
+      @include ptrbl(fixed, 0, null, null, 0);
       background-color: white;
       box-shadow: 0 0 1px 0 rgba(204, 204, 204, 0.5);
+      z-index: 1;
       .search {
         box-shadow: 0 0 0 0;
         background-color: #F8F8F8;
@@ -84,9 +83,7 @@
   }
 
   .navigation {
-    @include flex(space-between, center);
-
-    flex-wrap: wrap;
+    @include flex(space-between, center, null, wrap);
     text-align: center;
     font-size: .32rem;
     background-color: white;
@@ -171,11 +168,10 @@
 
   .case-detial {
     background-color: white;
-    padding: 0 .186667rem;
-    padding-top: .266667rem;
+    padding: .266667rem .186667rem 0 .186667rem;
     .item {
       @include wh(6.4rem, 4.69333rem);
-      box-shadow: 2px 2px 8px 0 rgba(153, 153, 153, 0.2);
+      box-shadow: 2px 2px 8px 0 rgba(153, 153, 153, .2);
       >img {
         @include wh(100%, 3.52rem);
         background-size: 100% 100%;
@@ -183,6 +179,91 @@
       .item-title {
         @include scw(.426667rem, #3A4042, bold);
         padding: .266667rem .266667rem .4266667rem .266667rem;
+      }
+    }
+  }
+
+  .service-providerl {
+    background-color: white;
+    padding: .266667rem .186667rem 0 .186667rem;
+    .item {
+      @include wh(4.42667rem, 5.65333rem);
+      box-shadow: 2px 2px 8px 0 rgba(153, 153, 153, .2);
+      >img {
+        @include wh(4.42667rem, 3.52rem);
+        background-size: 100% 100%;
+      }
+      .item-content {
+        padding: .26667rem .26667rem .426667rem  .26667rem;
+        .item-address {
+          @include scw(.32rem, #044897);
+        }
+        .item-title {
+          @include scw(.4266667rem, #3a4042, 700);
+          padding: .1333rem 0;
+        }
+        .item-mobile {
+          @include scw(.32rem, #999);
+        }
+      }
+    }
+  }
+
+  .process {
+    padding: 0.346667rem;
+    text-align: center;
+    background-color: white;
+    .process-bor {
+      @include flex(center, center);
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: .4266667rem 0;
+      .process-img {
+        @include img('../../images/ic_booking_process_threesixone');
+        @include wh(90%, 1.333333rem);
+      }
+    }
+  }
+
+  .data-leakage {
+    padding: 0 .26rem;
+    background-color: white;
+    .area {
+      @include img('../../images/image_zulingmianji_three_seven');
+      @include wh(100%, 1.6rem);
+      @include flex(center, center, column);
+      .area-num {
+        @include scw(.533333rem, #fff, bold);
+        margin-bottom: .16rem;
+      }
+      .area-des {
+        @include scw(.293333rem, #fff);
+      }
+    }
+    .data {
+      @include flex(space-between);
+      padding: .16rem 0 .90667rem 0;
+      .area-num {
+        @include scw(.373333rem, #fff, bold);
+        margin-bottom: .16rem;
+      }
+      .area-des {
+        @include scw(.293333rem, #fff);
+      }
+      .city {
+        @include img('../../images/image_fugaichengshi_three_seven');
+        @include wh(2.986667rem, 1.866667rem);
+        @include flex(center, center, column);
+      }
+      .people {
+        @include img('../../images/image_keliuliang_three_seven');
+        @include wh(2.986667rem, 1.866667rem);
+        @include flex(center, center, column);
+      }
+      .resource {
+        @include img('../../images/image_changdiziyuan_three_seven');
+        @include wh(2.986667rem, 1.866667rem);
+        @include flex(center, center, column);
       }
     }
   }

@@ -22,6 +22,7 @@ const webpackConfig = {
     alias: {
       "@src": path.join(__dirname, '..', 'src'),
       "view": path.join(__dirname, '..', 'src/view'),
+      "type": path.join(__dirname, '..', 'src/type'),
       "@": path.join(__dirname, '..', 'src/components')
     }
   },

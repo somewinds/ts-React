@@ -1,6 +1,10 @@
 import Ax from '../axios'
 import { header } from '../config'
-import { WonderfulCase } from './type'
+import { getServiceList, getWonderfulCase } from 'type/index'
+
+import { getSession } from '../../tool'
+
+
 /**
  * 获取首页banner
  * @version v1
@@ -73,7 +77,7 @@ export async function getHeadlineNews () {
  * @method GET
  * @param {WonderfulCase} obj
  */
-export async function getWonderfulCase (obj: WonderfulCase) {
+export async function getWonderfulCase (obj: getWonderfulCase) {
   const res = await Ax.get('/api/activity_cases', {
     params: obj,
     headers: header(1)
@@ -87,4 +91,48 @@ export async function getWonderfulCase (obj: WonderfulCase) {
     }))
   }
 }
-
+/**
+ * 获取优质服务商
+ * @version v1
+ * @method GET
+ * @param {WonderfulCase} obj 
+ */
+export async function getServiceList (obj: getServiceList) {
+  const res = await Ax.get('/api/service_provider', {
+    params: obj,
+    headers: header(1)
+  })
+  const isLogin = getSession('isLogin')
+  const { result } = res.data
+  return {
+    serviceLists: result.data.map((item: any) => ({
+      id: item.id,
+      company: item.company,
+      address: item.office_location,
+      pic_url: item.pic_url,
+      mobile: isLogin ? item.mobile : '电话:登录后查看号码'
+    }))
+  }
+}
+/**
+ * 
+ */
+export async function getLinHuiData () {
+  const res = await Ax.get('/api/home/linhui_data', {
+    headers: header(1)
+  })
+  const { result } = res.data
+  return { 
+    linHuiData:  {
+      city_counts: 0,
+      area_sum: 0,
+      physical_counts: 0,
+      people_sum: 0,
+      origin_city_counts: result.opened_city_counts,
+      origin_area_sum: result.physical_area_sums,
+      origin_physical_counts: result.physical_counts,
+      origin_people_sum:result.physical_people_sums,
+      time: 2
+    }
+  }
+}

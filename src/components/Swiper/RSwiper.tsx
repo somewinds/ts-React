@@ -3,6 +3,8 @@ import './RSwiper.scss'
 
 interface swiperAttribute {
   padding?: number
+  
+  paddingBottom?: number // 解决阴影被遮盖问题
 }
 
 export default class RSwiper extends React.Component<swiperAttribute, any> {
@@ -75,7 +77,7 @@ export default class RSwiper extends React.Component<swiperAttribute, any> {
                   onTouchMove={this.handleTouchMove.bind(this)} 
                   onTouchEnd={this.handleTouchEnd.bind(this)} 
                   key={index} 
-                  style={{padding: `0 ${this.props.padding}px`}}
+                  style={{padding: `0 ${this.props.padding}px`, paddingBottom: `${this.props.paddingBottom}px`}}
                 >
                   {item}
                 </div>

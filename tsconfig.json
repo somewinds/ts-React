@@ -23,7 +23,7 @@
     "paths": {
       "@view/*": ["view/*"],
       "@/*": ["components/*"],
-      "@src/*": ["/*"]
+      "@type/*": ["type/*"]
     },
     "moduleResolution": "node",
     "module": "esnext",
