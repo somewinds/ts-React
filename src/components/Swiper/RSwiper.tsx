@@ -3,7 +3,7 @@ import './RSwiper.scss'
 
 interface swiperAttribute {
   padding?: number
-  
+  children?: any[]
   paddingBottom?: number // 解决阴影被遮盖问题
 }
 
@@ -26,6 +26,14 @@ export default class RSwiper extends React.Component<swiperAttribute, any> {
   componentDidUpdate () {
     this.handleInitUlWidth()
   }
+  shouldComponentUpdate(nextProps: swiperAttribute) {
+    if (nextProps.padding !== this.props.padding || nextProps.children !== this.props.children) {
+      return true
+    } else {
+      return false
+    }
+  }
+  
   handleTouchStart (event: TouchEvent){
     this.start = event.touches[0].screenX
   }

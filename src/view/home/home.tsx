@@ -45,10 +45,12 @@ export class home extends React.Component<any, any> {
       });
       window.addEventListener("test", () => {}, opts);
     } catch (e) {}
-    window.addEventListener('scroll', this.listenSearchScoll.bind(this), supportsPassive ? { passive: true } : false)
+    window.addEventListener('scroll', () => { this.listenSearchScoll.bind(this) }, supportsPassive ? { passive: true } : false)
   }
   componentWillUnmount () {
     this.isCancelled = true
+    window.removeEventListener("test", () => {});
+    window.removeEventListener('scroll', () => { this.listenSearchScoll.bind(this) }, false)
   }
 
   getBanners () {
@@ -97,10 +99,11 @@ export class home extends React.Component<any, any> {
 
 
   listenSearchScoll () {
+    console.log(this)
     let top = document.body.scrollTop || document.documentElement.scrollTop || window.scrollY
     let search: any = this.refs.search
 
-    if (Array.from(search.classList).indexOf('scoll') === -1) {
+    if (Array.from(search.classList || []).indexOf('scoll') === -1) {
       search.className = top >= (search.offsetTop) ?
         'scroll-search scoll' : 'scroll-search'
         

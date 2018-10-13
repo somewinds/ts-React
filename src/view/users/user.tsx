@@ -5,11 +5,15 @@ import { getSession } from '../../tool'
 import './user.scss'
 import { orderManagement } from './component/orderManagement'
 
-export class User extends React.Component<any, any> {
+interface userState {
+  isLogin: boolean
+}
+
+export class User extends React.Component<any, userState> {
   constructor(prop: any) {
     super(prop)
     this.state = {
-      isLogin: getSession('login') || null
+      isLogin: getSession('login') || false
     }
   }
   render () {

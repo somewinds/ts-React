@@ -11,6 +11,9 @@ export class RFooter extends React.Component<Footer, any> {
   constructor (props: Footer) {
     super(props)
   }
+  shouldComponentUpdate () {
+    return false
+  }
   render () {
     return (
       <div className="rFooter">
