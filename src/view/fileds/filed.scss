@@ -1,0 +1,76 @@
+@import '../../style//mixin.scss';
+.header {
+  
+  @include flex(null, center);
+  @include wh(100%, 1.28rem);
+  background-color: white;
+  padding: .16rem .32rem;
+  .back-icon {
+    @include wh(.66rem, .7rem);
+    @include img('../../images/ic_back_black');
+    display: inline-block;
+    margin-right: .2rem;
+  }
+
+  .search {
+    @include flex(null, center);
+    @include wh(100%, 100%);
+    @include scw(.32rem, #b4b4b4);
+    background-color: #f0f0f0;
+    border-radius: 1rem;
+    .search-icon {
+      @include wh(.44rem, .44rem);
+      @include img('../../images/ic_search_normal_three_two');
+      display: inline-block;
+      margin: 0 .2rem 0 .4rem;
+    }
+    .search-input {
+      @include scw(.37333rem);
+    }
+  }
+}
+
+.filed {
+
+  .filter-condition {
+    @include flex(space-around, center);
+    @include scw(.346667rem);
+    background-color: white;
+    .filter-item {
+      padding: .347rem 0;
+    }
+    .arrow {
+      @include wh(.293333rem, .293333rem);
+      @include img('../../images/icon_open_gray_nor_three_one');
+      display: inline-block;
+      margin-left: .1rem;
+    }
+    .filter-icon {
+      @include wh(.293333rem, .293333rem);
+      @include img('../../images/ic_screen_gary_nor_three_one');
+      display: inline-block;
+      margin-left: .1rem;
+    }
+  }
+
+  .quick-screen {
+    @include flex(null, center);
+    @include scw(.32rem);
+    @include wh(100%, 1.173333rem);
+    padding: 0 .266667rem;
+    .quick-item {
+      @include flex(null, center);
+      padding: .1rem .27rem;
+      border-radius: .5rem;
+      background-color: #fff;
+      margin-right: 0.4rem;
+      .quick-icon {
+        @include wh(.16rem, .293333rem);
+        @include img('../../images/_three_six_oneic_kuaisuding1_gary');
+        display: inline-block;
+        margin-right: .1rem;
+      }
+    }
+  }
+
+}

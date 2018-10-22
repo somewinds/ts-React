@@ -25,7 +25,10 @@ export class home extends React.Component<any, any> {
       city_id: 90,
       
       showMarquee: false,
+
+      scoll: this.listenSearchScoll.bind(this) // tips: https://stackoverflow.com/questions/38564080/remove-event-listener-on-unmount-react
     }
+    
   }
   componentWillMount() {
     this.getBanners()
@@ -45,12 +48,12 @@ export class home extends React.Component<any, any> {
       });
       window.addEventListener("test", () => {}, opts);
     } catch (e) {}
-    window.addEventListener('scroll', () => { this.listenSearchScoll.bind(this) }, supportsPassive ? { passive: true } : false)
+    window.addEventListener('scroll',  this.state.scoll, supportsPassive ? { passive: true } : false)
   }
   componentWillUnmount () {
     this.isCancelled = true
     window.removeEventListener("test", () => {});
-    window.removeEventListener('scroll', () => { this.listenSearchScoll.bind(this) }, false)
+    window.removeEventListener('scroll', this.state.scoll, false)
   }
 
   getBanners () {
@@ -99,8 +102,7 @@ export class home extends React.Component<any, any> {
 
 
   listenSearchScoll () {
-    console.log(this)
-    let top = document.body.scrollTop || document.documentElement.scrollTop || window.scrollY
+    let top = document.body.scrollTop || window.scrollY
     let search: any = this.refs.search
 
     if (Array.from(search.classList || []).indexOf('scoll') === -1) {

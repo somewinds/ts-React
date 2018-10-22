@@ -1,6 +1,7 @@
 @import '../../style//mixin.scss';
 .home {
   padding-bottom: 1.386667rem;
+  
   .down-app {
     @include wh(100%, 1.6rem);
     @include flex(null, center);
